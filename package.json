@@ -1,10 +1,11 @@
 {
-  "name": "electrontest4",
+  "name": "ShoppingList",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package-win": "electron-packager . --electron-version=1.0.0 --overwrite --asar --platform=win32 --arch=ia32 --icon=assets/img/icon.png --prune=true --out=release-builds --version.string.CompanyName=CE --version-string.FileDescription=CE -version.string.ProductName=\"ShoppingList\""    
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Synaxis/electronTest4/issues"
   },
-  "homepage": "https://github.com/Synaxis/electronTest4#readme"
+  "homepage": "https://github.com/Synaxis/electronTest4#readme",
+  "dependencies": {
+    "electron-packager": "1.0.0"
+  }
 }
