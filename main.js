@@ -2,7 +2,7 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-const {app, BrowserWindow, Menu, IpcMain} = electron;
+const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 let mainWindow;
 let addWindow;
@@ -45,19 +45,19 @@ addWindow.loadURL(url.format({
   slashes: true
 }));
 
-//Catch Item:add
-ipcMain.on('item:add',function(e, item){ //wtf
-  console.log(item);
-  mainWindow.webContents.send('item:add', item);
-  addWindow.close();
-});
-
   //Garbage collection handle
   addWindow.on('close', function(){
     addWindow = null;
   });
 
 }// end of create window
+
+//Catch Item:add
+ipcMain.on('item:add',function(e, item){ //wtf
+  console.log(item);
+  mainWindow.webContents.send('item:add', item);
+  addWindow.close();
+});
 
 
 // Create menu template 
