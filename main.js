@@ -54,9 +54,10 @@ addWindow.loadURL(url.format({
 
 //Catch Item:add
 ipcMain.on('item:add',function(e, item){ //wtf
-  console.log(item);
+  //console.log(item);
   mainWindow.webContents.send('item:add', item);
   addWindow.close();
+  //good now , send to mainWindow.html
 });
 
 

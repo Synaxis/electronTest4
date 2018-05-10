@@ -4,6 +4,22 @@
   <title>Launcher do mancosso</title>
 </head>
 <body>
-  <h1>Launcher do mancosso</h1>  
-</body>
+  <h1>Launcher do mancosso</h1> 
+  
+  <ul></ul>
+
+  <script>
+    const electron = require('electron');
+    const {ipcRenderer} = electron; 
+    const ul = document.querySelector('ul'); //add the ul
+
+    ipcRenderer.on('item:add', function(e, item){
+      const li = document.createElement('li'); //create a blank item
+      const itemText = document.createTextNode(item);
+      li.appendChild(itemText); //now add the text node to the li
+      ul.appendChild(li);//add the li to the ul
+    });
+
+  </script>
+</body> 
 </html>
