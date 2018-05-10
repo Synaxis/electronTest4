@@ -2,7 +2,7 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-const {app, BrowserWindow, Menu} = electron;
+const {app, BrowserWindow, Menu, IpcMain} = electron;
 
 let mainWindow;
 let addWindow;
@@ -44,6 +44,13 @@ addWindow.loadURL(url.format({
   protocol:'file',
   slashes: true
 }));
+
+//Catch Item:add
+ipcMain.on('item:add',function(e, item){ //wtf
+  console.log(item);
+  mainWindow.webContents.send('item:add', item);
+  addWindow.close();
+});
 
   //Garbage collection handle
   addWindow.on('close', function(){
