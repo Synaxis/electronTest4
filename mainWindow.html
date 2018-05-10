@@ -37,6 +37,9 @@
 
     function removeItem(e){ // don't forget the 'e' 
       e.target.remove(); // any li inside the ul that we clicl , we will remove
+      if(ul.children.length == 0){ //clear styling if items are 0
+        ul.className = '';
+      }
     }
 
   </script>
