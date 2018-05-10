@@ -3,10 +3,13 @@
 <head>  
   <title>Lista de Compras</title>
 </head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 <body>
-  <h1>Lista de Compras</h1> 
-  
+  <nav>
+    <div class="nav-wrapper">
+      <a class="brand logo">Shopping List</a>
+    </div>
+  </nav>  
   <ul></ul>
 
   <script>
@@ -16,7 +19,9 @@
     
     //add item
     ipcRenderer.on('item:add', function(e, item){
+      ul.className = 'collection';
       const li = document.createElement('li'); //create a blank item
+      li.className = 'collection-item';// add a style to the added item inside the ul
       const itemText = document.createTextNode(item);
       li.appendChild(itemText); //now add the text node to the li
       ul.appendChild(li);//add the li to the ul
